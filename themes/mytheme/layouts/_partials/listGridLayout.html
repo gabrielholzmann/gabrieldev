@@ -1,0 +1,41 @@
+<div class="fixed-grid has-4-cols has-1-cols-mobile">
+
+    <div class="grid">
+        <!--
+        <div class="cell is-col-span-2 is-col-start-2 mt-4">
+            <h1 class="has-text-centered is-size-1">{{ .Title }}</h1>
+        </div>
+        -->
+
+        <div class="cell is-col-span-2 is-col-start-2 mb-4 content">
+            {{ .Content }}
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2 mb-2">
+            <h1 class="has-text-centered has-text-weight-bold is-size-3">{{ .PageBoldTitle }}</h1>
+        </div>
+
+    {{ range .PagesToShow }}
+            <div class="cell is-col-span-2 is-col-start-2">
+                <a class= "is-size-3" href={{.RelPermalink}}>{{ .LinkTitle }}</a>
+                {{ .Date | time.Format ":date_medium" }}
+            </div>
+
+            <div class="cell is-col-span-2 is-col-start-2">
+                {{ .Params.quickSummary }}
+            </div>
+
+            <div class="cell is-col-span-2 is-col-start-2 mb-5">
+                Tags:
+
+                {{ range .GetTerms "tags"}}
+                    <a class="mr-1 is-underlined"  href="{{ .RelPermalink }} ">
+                        #{{ .LinkTitle }}
+                    </a>
+                {{ end }}
+            </div>
+    {{ end }}
+    </div>
+
+</div>
+

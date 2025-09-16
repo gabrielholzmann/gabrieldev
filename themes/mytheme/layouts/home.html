@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+{{ partial "listGridLayout.html" (dict
+    "Title" .Title
+    "Content" .Content
+    "PageBoldTitle" "My Most Recent Posts!"
+    "PagesToShow" (first 3 site.RegularPages)
+) }}
+
+{{ end }}

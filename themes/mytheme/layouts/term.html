@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+{{ partial "listGridLayout.html" (dict
+    "Title" .Title
+    "Content" .Content
+    "PageBoldTitle" (printf "Posts tagged with \"%s\"" .Title)
+    "PagesToShow" (.Pages)
+) }}
+
+{{ end }}

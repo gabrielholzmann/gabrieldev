@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="fixed-grid has-4-cols has-1-cols-mobile has-text-centered">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile">
+
+            <!--
+                <h1 class="is-size-3 has-text-centered has-text-weight-bold mt-4"> Browse by tags</h1>
+            -->
+
+            {{ range .Site.Taxonomies.tags }}
+                <a class="mr-1 is-underlined"  href="{{ .Page.Permalink}} ">
+                    #{{ .Page.Title }}
+                </a>
+            {{ end }}
+
+            <hr style="background-color: #FAF5F6; width: 100%">
+        </div>
+    </div>
+</div>
+
+{{ partial "listGridLayout.html" (dict
+    "Title" .Title
+    "Content" .Content
+    "PageBoldTitle" "All My Posts!"
+    "PagesToShow" (first 3 site.RegularPages)
+) }}
+
+{{ end }}

@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="fixed-grid has-4-cols has-1-cols-mobile">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 mt-4">
+            <h1 class="has-text-centered is-size-1">{{ .Title }}</h1>
+            <h2 class="is-size-6">{{ .Date | time.Format ":date_medium" }}</h2>
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            Tags:
+            {{ range .GetTerms "tags"}}
+                <a class="mr-1 is-underlined"  href="{{ .RelPermalink }} ">
+                    #{{ .LinkTitle }}
+                </a>
+            {{ end }}
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            <div class = "content">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}

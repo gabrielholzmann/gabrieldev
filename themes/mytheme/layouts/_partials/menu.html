@@ -1,0 +1,46 @@
+{{ $currentPage := . }}
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+
+  <!-- Menu Items -->
+  <div id="navMenu" class="navbar-menu">
+      {{ range site.Menus.main }}
+        {{ $isActive := or ($currentPage.IsMenuCurrent "main" .)
+                          ($currentPage.HasMenuCurrent "main" .)
+                          (and (eq $currentPage.Kind "term") 
+                               (hasPrefix $currentPage.RelPermalink "/tags/")
+                               (eq .URL "/posts/")) }}
+        
+        <a class="navbar-item {{ if $isActive }}is-active{{ end }}" href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+      {{ end }}
+
+      <a class="navbar-item" target="_blank" href="https://github.com/gabrielholzmann">
+        Github
+      </a>
+      <a class="navbar-item" target="_blank" href="https://www.linkedin.com/in/gabrielholzmann">
+        Linkedin
+      </a>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbarBurgers = document.querySelectorAll('.navbar-burger');
+  
+  navbarBurgers.forEach(el => {
+    el.addEventListener('click', () => {
+      const target = document.getElementById(el.dataset.target);
+      el.classList.toggle('is-active');
+      target.classList.toggle('is-active');
+    });
+  });
+});
+</script>
+

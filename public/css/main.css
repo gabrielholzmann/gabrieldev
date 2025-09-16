@@ -1,0 +1,51 @@
+body {
+  color: #D0C7C9;
+  background-color: #252525;
+}
+
+.footer {
+    background-color: #252525;
+}
+
+h1 {
+    color: #FAF5F6;
+}
+
+a {
+    color: #577E2A;
+}
+
+a:hover {
+    color: #9ec667;
+}
+
+.navbar {
+    --bulma-navbar-background-color: #252525;
+    --bulma-navbar-hover-background-color: #303030;
+    --bulma-navbar-active-background-color: #3a3a3a;
+}
+
+.navbar-item:hover {
+    background-color: #303030
+    color: #9ec667;
+}
+
+.navbar-item.is-active {
+    background-color: #3A3A3A;
+    color: #9ec667;
+}
+
+pre {
+    background-color: #212121 !important;
+    border: 1px solid #FAF5F6;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+img {
+    display: block;
+
+    margin: 1.5rem auto;
+}
+
+

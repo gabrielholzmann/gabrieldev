@@ -1,0 +1,9 @@
+baseURL = 'https://gabrieldev.dev/'
+languageCode = 'en-us'
+title = 'gabrieldev'
+theme = 'mytheme'
+
+disableKinds = ["taxonomy"]
+
+[markup.goldmark.renderer]
+    unsafe = true
