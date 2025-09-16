@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+
+<title> Advent of Code 24 Day 1</title>
+
+
+      <link rel="stylesheet" href="/css/main.min.ab45e008b803c671aa6df8414d08dafb8adee24a6c3aa2f436c0565e64aa4005.css" integrity="sha256-q0XgCLgDxnGqbfhBTQja&#43;4re4kpsOqL0NsBWXmSqQAU=" crossorigin="anonymous">
+
+
+        <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <div class="fixed-grid has-4-cols has-text-centered has-1-cols-mobile">
+    <div class = "grid">
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile">
+            <h1 class="is-size-3">Gabriel Holzmann</h1>
+            <h2 class="is-size-4">Software Engineer</h2>
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile is-flex is-justify-content-center is-align-items-center">
+            
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+
+  
+  <div id="navMenu" class="navbar-menu">
+      
+        
+        
+        <a class="navbar-item " href="/">
+          Home
+        </a>
+      
+        
+        
+        <a class="navbar-item " href="/posts/">
+          Posts
+        </a>
+      
+        
+        
+        <a class="navbar-item " href="/contact/">
+          Contact
+        </a>
+      
+
+      <a class="navbar-item" target="_blank" href="https://github.com/gabrielholzmann">
+        Github
+      </a>
+      <a class="navbar-item" target="_blank" href="https://www.linkedin.com/in/gabrielholzmann">
+        Linkedin
+      </a>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbarBurgers = document.querySelectorAll('.navbar-burger');
+  
+  navbarBurgers.forEach(el => {
+    el.addEventListener('click', () => {
+      const target = document.getElementById(el.dataset.target);
+      el.classList.toggle('is-active');
+      target.classList.toggle('is-active');
+    });
+  });
+});
+</script>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+  </header>
+  <main>
+    
+<div class="fixed-grid has-4-cols has-1-cols-mobile">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 mt-4">
+            <h1 class="has-text-centered is-size-1">Advent of Code 24 Day 1</h1>
+            <h2 class="is-size-6">Sep 15, 2025</h2>
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            Tags:
+            
+                <a class="mr-1 is-underlined"  href="/tags/adventofcode24/ ">
+                    #AdventOfCode24
+                </a>
+            
+                <a class="mr-1 is-underlined"  href="/tags/programming/ ">
+                    #Programming
+                </a>
+            
+                <a class="mr-1 is-underlined"  href="/tags/c&#43;&#43;/ ">
+                    #C&#43;&#43;
+                </a>
+            
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            <div class = "content">
+                <p><a href="https://github.com/gabrielholzmann/AdventOfCode24">Link to the github repository</a></p>
+<p>Hello, welcome to the first post on my series of solutions to advent of code 2024!</p>
+<p>Here are some of the characteristics you will find in my solutions:</p>
+<ul>
+<li>All of my puzzles will be solved in C/C++</li>
+<li>I will not provide my personal input</li>
+<li>If you have any suggestions, comments or optimizations to my code please <a href="/contact">contact me</a></li>
+</ul>
+<p>First of all get acquainted to the puzzle in this <a href="https://adventofcode.com/2024/day/1">link</a></p>
+<h1 id="part-1">Part 1</h1>
+<p>We started with a pretty simple puzzle here are the steps</p>
+<ol>
+<li>read the left and right part into lists</li>
+<li>sort both lists</li>
+<li>calculate the difference between each element and add all those differences</li>
+</ol>
+<p>You can see these steps in the code below, let&rsquo;s explore further how each part works:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>ifstream file <span style="color:#f92672">=</span> openFile(<span style="color:#e6db74">&#34;../input.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lists locationList <span style="color:#f92672">=</span> readLists(file);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sortLists(locationList);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> calculateDistances(locationList) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    file.close();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="file-opening">File Opening</h2>
+<p>Using std::ifstream we can open a file and return it, we also check for errors if the file doesn&rsquo;t exist for example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>ifstream openFile(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>fileName) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>ifstream file;
+</span></span><span style="display:flex;"><span>    file.open(fileName, std<span style="color:#f92672">::</span>ifstream<span style="color:#f92672">::</span>in);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>file.is_open()) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cerr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Error opening file &#34;</span> <span style="color:#f92672">&lt;&lt;</span> fileName <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>runtime_error(<span style="color:#e6db74">&#34;Error opening file&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> file;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="reading-the-file">Reading the file</h2>
+<p>Here we create a struct with 2 vectors that will hold the left and right list</p>
+<p>To actually read the input we just have a while loop and the &raquo; operator reading numbers into 2 variables and them pushing them onto our struct</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">lists</span> {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> leftList;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> rightList;
+</span></span><span style="display:flex;"><span>} lists;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#a6e22e">readLists</span>(std<span style="color:#f92672">::</span>ifstream <span style="color:#f92672">&amp;</span>file) {
+</span></span><span style="display:flex;"><span>    lists locationLists;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> leftNumber <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, rightNumber <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (file <span style="color:#f92672">&gt;&gt;</span> leftNumber <span style="color:#f92672">&gt;&gt;</span> rightNumber) {
+</span></span><span style="display:flex;"><span>        locationLists.leftList.push_back(leftNumber);
+</span></span><span style="display:flex;"><span>        locationLists.rightList.push_back(rightNumber);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> locationLists;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="sort-the-list">Sort the list</h2>
+<p>We just use std::sort</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sortLists</span>(lists <span style="color:#f92672">&amp;</span>locationLists) {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>sort(locationLists.leftList.begin(), locationLists.leftList.end());
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>sort(locationLists.rightList.begin(), locationLists.rightList.end());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="calculate-distance">Calculate distance</h2>
+<p>Here we go element by element calculate the absolute difference between them and add it to the total</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateDistances</span>(<span style="color:#66d9ef">const</span> lists <span style="color:#f92672">&amp;</span>locationList) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> totalDistance <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> locationList.leftList.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        totalDistance <span style="color:#f92672">+=</span> std<span style="color:#f92672">::</span>abs(locationList.rightList[i] <span style="color:#f92672">-</span> locationList.leftList[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalDistance;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="part-2">Part 2</h1>
+<p>Part 2 is a little more complicated we need to:</p>
+<ol>
+<li>figure out how often each number appears in the right list(a frequency map).  For that we will use an unordered_map(hash map)</li>
+<li>loop through the left list and multiply it by how many times it appears in the right list(frequency map) and add them all up</li>
+</ol>
+<p>*Everything else not mentioned here is the same as part 1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>ifstream file <span style="color:#f92672">=</span> openFile(<span style="color:#e6db74">&#34;../input.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lists locationList <span style="color:#f92672">=</span> readLists(file);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    frequencyMap fm <span style="color:#f92672">=</span> calculateFrequency(locationList);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> calculateSimilarityScore(locationList, fm) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    file.close();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="calculating-right-list-frequency">Calculating right list frequency</h2>
+<p>Loop through the right list and add 1 to it on the hash map to calculate how many times it appears on the right list</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>frequencyMap <span style="color:#a6e22e">calculateFrequency</span>(<span style="color:#66d9ef">const</span> lists <span style="color:#f92672">&amp;</span>locationLists) {
+</span></span><span style="display:flex;"><span>    frequencyMap fm;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>locationNumber : locationLists.rightList) {
+</span></span><span style="display:flex;"><span>        fm[locationNumber] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> fm;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="similarity-score">Similarity score</h2>
+<p>Loop through the left list and multiply by its frequency on the frequency map(if we can find it) and them add it all up</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateSimilarityScore</span>(<span style="color:#66d9ef">const</span> lists <span style="color:#f92672">&amp;</span>locationList, <span style="color:#66d9ef">const</span> frequencyMap <span style="color:#f92672">&amp;</span>fm) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> similarityScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>locationNumber : locationList.leftList) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">auto</span> iter <span style="color:#f92672">=</span> fm.find(locationNumber); iter <span style="color:#f92672">!=</span> fm.end())
+</span></span><span style="display:flex;"><span>            similarityScore <span style="color:#f92672">+=</span> locationNumber <span style="color:#f92672">*</span> iter<span style="color:#f92672">-&gt;</span>second;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> similarityScore;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </main>
+  <footer>
+    <div class="fixed-grid has-4-cols has-1-cols-mobile">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile">
+            <footer class = "footer">
+                <hr style="background-color: #FAF5F6; width: 100%">
+                <h1 class="has-text-centered ">© 2025 Gabriel Holzmann.</h1>
+            </footer>
+        </div>
+    </div>
+</div>
+
+  </footer>
+</body>
+</html>

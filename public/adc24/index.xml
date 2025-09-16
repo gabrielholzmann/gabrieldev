@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on gabrieldev</title>
-    <link>https://gabrieldev.dev/</link>
-    <description>Recent content in Home on gabrieldev</description>
+    <title>Adc24s on gabrieldev</title>
+    <link>https://gabrieldev.dev/adc24/</link>
+    <description>Recent content in Adc24s on gabrieldev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Sep 2025 21:09:26 -0300</lastBuildDate>
-    <atom:link href="https://gabrieldev.dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gabrieldev.dev/adc24/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advent of Code 24 Day 1</title>
       <link>https://gabrieldev.dev/adc24/day1/</link>
       <pubDate>Mon, 15 Sep 2025 21:09:26 -0300</pubDate>
       <guid>https://gabrieldev.dev/adc24/day1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/gabrielholzmann/AdventOfCode24&#34;&gt;Link to the github repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hello, welcome to the first post on my series of solutions to advent of code 2024!&lt;/p&gt;&#xA;&lt;p&gt;Here are some of the characteristics you will find in my solutions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;All of my puzzles will be solved in C/C++&lt;/li&gt;&#xA;&lt;li&gt;I will not provide my personal input&lt;/li&gt;&#xA;&lt;li&gt;If you have any suggestions, comments or optimizations to my code please &lt;a href=&#34;https://gabrieldev.dev/contact&#34;&gt;contact me&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;First of all get acquainted to the puzzle in this &lt;a href=&#34;https://adventofcode.com/2024/day/1&#34;&gt;link&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World!</title>
-      <link>https://gabrieldev.dev/meta/helloworld/</link>
-      <pubDate>Mon, 15 Sep 2025 20:00:00 -0300</pubDate>
-      <guid>https://gabrieldev.dev/meta/helloworld/</guid>
-      <description>&lt;h1 id=&#34;hello-welcome-to-my-first-blog-post&#34;&gt;Hello, Welcome to my first blog post!&lt;/h1&gt;&#xA;&lt;p&gt;First a quick little introduction: My name is Gabriel, I&amp;rsquo;m a 24-year-old software engineer&#xA;located in Londrina - PR - Brazil.&lt;/p&gt;&#xA;&lt;p&gt;I created this website because I believe everybody should have their own little corner of the internet to share&#xA;their own thoughts, ideas and projects without having to rely on big tech to do so.&lt;/p&gt;&#xA;&lt;p&gt;With my own custom website and domain I have 100% control on the technologies, design and hosting of the website.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
