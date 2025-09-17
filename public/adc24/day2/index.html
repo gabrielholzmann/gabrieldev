@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
+
+<title> Advent of Code 24 Day 2</title>
+
+
+      <link rel="stylesheet" href="/css/main.min.ab45e008b803c671aa6df8414d08dafb8adee24a6c3aa2f436c0565e64aa4005.css" integrity="sha256-q0XgCLgDxnGqbfhBTQja&#43;4re4kpsOqL0NsBWXmSqQAU=" crossorigin="anonymous">
+
+
+        <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <div class="fixed-grid has-4-cols has-text-centered has-1-cols-mobile">
+    <div class = "grid">
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile">
+            <h1 class="is-size-3">Gabriel Holzmann</h1>
+            <h2 class="is-size-4">Software Engineer</h2>
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile is-flex is-justify-content-center is-align-items-center">
+            
+<nav class="navbar mb-4" role="navigation" aria-label="main navigation">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+
+  
+  <div id="navMenu" class="navbar-menu">
+      
+        
+        
+        <a class="navbar-item " href="/">
+          Home
+        </a>
+      
+        
+        
+        <a class="navbar-item " href="/posts/">
+          Posts
+        </a>
+      
+        
+        
+        <a class="navbar-item " href="/contact/">
+          Contact
+        </a>
+      
+
+      <a class="navbar-item" target="_blank" href="https://github.com/gabrielholzmann">
+        Github
+      </a>
+      <a class="navbar-item" target="_blank" href="https://www.linkedin.com/in/gabrielholzmann">
+        Linkedin
+      </a>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbarBurgers = document.querySelectorAll('.navbar-burger');
+  
+  navbarBurgers.forEach(el => {
+    el.addEventListener('click', () => {
+      const target = document.getElementById(el.dataset.target);
+      el.classList.toggle('is-active');
+      target.classList.toggle('is-active');
+    });
+  });
+});
+</script>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+  </header>
+  <main>
+    
+<div class="fixed-grid has-4-cols has-1-cols-mobile">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 mt-4">
+            <h1 class="has-text-centered is-size-1">Advent of Code 24 Day 2</h1>
+            <h2 class="is-size-6">Sep 16, 2025</h2>
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            Tags:
+            
+                <a class="mr-1 is-underlined"  href="/tags/adventofcode24/ ">
+                    #AdventOfCode24
+                </a>
+            
+                <a class="mr-1 is-underlined"  href="/tags/programming/ ">
+                    #Programming
+                </a>
+            
+                <a class="mr-1 is-underlined"  href="/tags/c&#43;&#43;/ ">
+                    #C&#43;&#43;
+                </a>
+            
+        </div>
+
+        <div class="cell is-col-span-2 is-col-start-2">
+            <div class = "content">
+                <p><a href="https://github.com/gabrielholzmann/AdventOfCode24">Link to the github repository</a></p>
+<p>Here are some of the characteristics you will find in my solutions:</p>
+<ul>
+<li>All of my puzzles will be solved in C/C++</li>
+<li>I will not provide my personal input</li>
+<li>If you have any suggestions, comments or optimizations to my code please <a href="/contact">contact me</a></li>
+</ul>
+<p>First of all get acquainted to the puzzle in this <a href="https://adventofcode.com/2024/day/2">link</a></p>
+<h1 id="part-1">Part 1</h1>
+<h2 id="main">Main</h2>
+<p>Our <strong>main</strong> consists of:</p>
+<ol>
+<li>opening a file</li>
+<li>reading the reports</li>
+<li>looping through all the reports and checking if they are valid</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    FILE <span style="color:#f92672">*</span>fp <span style="color:#f92672">=</span> openFile(<span style="color:#e6db74">&#34;../input.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ReportLists rl <span style="color:#f92672">=</span> readReportLists(fp);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> calculateValidReportsTotal(rl) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="opening-files">Opening files</h2>
+<p>This time we open the file and if it&rsquo;s not valid we throw a std::runtime_error</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>FILE <span style="color:#f92672">*</span><span style="color:#a6e22e">openFile</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>filename) {
+</span></span><span style="display:flex;"><span>    FILE <span style="color:#f92672">*</span>fp <span style="color:#f92672">=</span> fopen(filename, <span style="color:#e6db74">&#34;r&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>fp) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>runtime_error(<span style="color:#e6db74">&#34;Could not open file&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> fp;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="reading-reports">Reading reports</h2>
+<p>First we have a data structure that defines a single report(Report) and another one that defines a vector of reports(ReportList)</p>
+<p>To actually read the reports we create a line buffer and use fgets to read into it, next we use the strtok function to separate the string into tokens in this case &quot; &ldquo;(space)
+because the numbers in our input are separated by spaces.</p>
+<p>With atoi we read that number and push it into a new report and after all numbers are read we push that report into the report list</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> Report;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ReportLists</span> {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Report<span style="color:#f92672">&gt;</span> reportLists;
+</span></span><span style="display:flex;"><span>} ReportLists;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ReportLists <span style="color:#a6e22e">readReportLists</span>(FILE <span style="color:#f92672">*</span>fp) {
+</span></span><span style="display:flex;"><span>    ReportLists rl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> line[<span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (fgets(line, <span style="color:#ae81ff">50</span>, fp)) {
+</span></span><span style="display:flex;"><span>        Report r;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>ptr <span style="color:#f92672">=</span> strtok(line, <span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (ptr) {
+</span></span><span style="display:flex;"><span>            r.push_back(atoi(ptr));
+</span></span><span style="display:flex;"><span>            ptr <span style="color:#f92672">=</span> strtok(<span style="color:#66d9ef">nullptr</span>, <span style="color:#e6db74">&#34; &#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rl.reportLists.push_back(r);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> rl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="checking-reports">Checking reports</h2>
+<p><strong>calculateValidReportsTotal()</strong> just loop through all our reports in the report list and if it&rsquo;s valid it adds to the total</p>
+<p>Now let&rsquo;s look at the most important part: How do we know if a report is valid?</p>
+<p>We need 2 pieces of information:</p>
+<ol>
+<li>is the interval increasing or decreasing</li>
+<li>is the interval &gt;= 1 and &lt;= 3</li>
+</ol>
+<p>To answer question one we can take the difference of the first and second number</p>
+<ul>
+<li>if the first number is greater the modifier is positive</li>
+<li>if the second number is greater that means our difference will be negative so we need to multiply by -1 to turn it into a positive number</li>
+</ul>
+<p>We can&rsquo;t just take the absolute value with <strong>std::abs()</strong> because then we would have no information if the intervals are all increasing or decreasing</p>
+<p>So now we just loop through all the number taking the difference and multiplying by the modifier if it&rsquo;s out of the permitted interval we return false</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">checkIfReportIsValid</span>(Report <span style="color:#f92672">&amp;</span>r) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> modifier <span style="color:#f92672">=</span> (r[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> r[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> diff <span style="color:#f92672">=</span> (r[i] <span style="color:#f92672">-</span> r[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">*</span> modifier;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (diff <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> diff <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateValidReportsTotal</span>(ReportLists <span style="color:#f92672">&amp;</span>rl) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> totalValid <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>r : rl.reportLists) {
+</span></span><span style="display:flex;"><span>        totalValid <span style="color:#f92672">+=</span> checkIfReportIsValid(r);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalValid;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="part-2">Part 2</h1>
+<p>Now we can tolerate 1 bad level the only difference is how we check reports.</p>
+<p>I know it&rsquo;s a brute-force solution but if you have any suggestions on how to implement a better one please <a href="/contact">contact me</a></p>
+<p>*Everything else not mentioned here is the same as part 1</p>
+<h2 id="removing-a-single-element">Removing a single element</h2>
+<p>Looking at the new intermediary function <strong>checkIfReportIsValidByRemovingOne()</strong></p>
+<p>First try to see if the report is valid, if it is return true</p>
+<p>Else loop through every element, create a temp report and remove that element from temp and check if it&rsquo;s valid. If it is return true</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">checkIfReportIsValid</span>(<span style="color:#66d9ef">const</span> Report <span style="color:#f92672">&amp;</span>r) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> modifier <span style="color:#f92672">=</span> (r[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> r[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> diff <span style="color:#f92672">=</span> (r[i] <span style="color:#f92672">-</span> r[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">*</span> modifier;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (diff <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> diff <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">checkIfReportIsValidByRemovingOne</span>(<span style="color:#66d9ef">const</span> Report <span style="color:#f92672">&amp;</span>r) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (checkIfReportIsValid(r))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r.size(); <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        Report temp <span style="color:#f92672">=</span> r;
+</span></span><span style="display:flex;"><span>        temp.erase(temp.begin() <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (checkIfReportIsValid(temp))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">calculateValidReportsTotal</span>(ReportLists <span style="color:#f92672">&amp;</span>rl) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> totalValid <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> <span style="color:#f92672">&amp;</span>r : rl.reportLists) {
+</span></span><span style="display:flex;"><span>        totalValid <span style="color:#f92672">+=</span> checkIfReportIsValidByRemovingOne(r);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> totalValid;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </main>
+  <footer>
+    <div class="fixed-grid has-4-cols has-1-cols-mobile">
+    <div class="grid">
+        <div class="cell is-col-span-2 is-col-start-2 is-col-start-1-mobile">
+            <footer class = "footer">
+                <hr style="background-color: #FAF5F6; width: 100%">
+                <h1 class="has-text-centered ">© 2025 Gabriel Holzmann.</h1>
+            </footer>
+        </div>
+    </div>
+</div>
+
+  </footer>
+</body>
+</html>
