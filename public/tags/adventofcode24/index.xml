@@ -6,8 +6,15 @@
     <description>Recent content in AdventOfCode24 on gabrieldev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Sep 2025 21:39:28 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 17 Sep 2025 20:12:42 -0300</lastBuildDate>
     <atom:link href="https://gabrieldev.dev/tags/adventofcode24/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code 24 Day 3</title>
+      <link>https://gabrieldev.dev/adc24/day3/</link>
+      <pubDate>Wed, 17 Sep 2025 20:12:42 -0300</pubDate>
+      <guid>https://gabrieldev.dev/adc24/day3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/gabrielholzmann/AdventOfCode24&#34;&gt;Link to the github repository&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here are some of the characteristics you will find in my solutions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;All of my puzzles will be solved in C/C++&lt;/li&gt;&#xA;&lt;li&gt;I will not provide my personal input&lt;/li&gt;&#xA;&lt;li&gt;If you have any suggestions, comments or optimizations to my code please &lt;a href=&#34;https://gabrieldev.dev/contact&#34;&gt;contact me&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;First of all get acquainted to the puzzle in this &lt;a href=&#34;https://adventofcode.com/2024/day/3&#34;&gt;link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;part-1&#34;&gt;Part 1&lt;/h1&gt;&#xA;&lt;p&gt;If you read the puzzle you know it&amp;rsquo;s about findings patterns a perfect task for regex&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Advent of Code 24 Day 2</title>
       <link>https://gabrieldev.dev/adc24/day2/</link>
